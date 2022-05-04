@@ -79,9 +79,35 @@ function movePumes () {
       })
   }
 
+  function moveIcons () {
+    ctx.clearRect(0, 0, 1000, 600);
+    html.x = html.x + 9;
+    javascript.x = javascript.x + 9;
+    css.x = css.x + 9; 
+    if (html.x > 1000) {
+      html.x = -50;
+    }
+    if (javascript.x > 1000) {
+        javascript.x = -50;
+    }
+    if (css.x > 1000) {
+        css.x = -50;
+    }
+    ctx.drawImage(htmlImg, html.x, html.y, html.width, html.height);
+    ctx.drawImage(jsImg, javascript.x, javascript.y, javascript.width, javascript.height);
+    ctx.drawImage(cssImg, css.x, css.y, css.width, css.height);
+    pumes.forEach(elem => {
+        ctx.drawImage(pumeImg, elem.x, elem.y, elem.width, elem.height);
+      })
+  }
+
   setTimeout(function () {
     let interval = setInterval(movePumes, 100);
   }, 1000)
+  
+  setTimeout(function () {
+    let interval = setInterval(moveIcons, 080);
+  }, 3500)
 
 
 
